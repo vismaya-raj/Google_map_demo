@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import { Map, GoogleApiWrapper } from 'google-maps-react';
 import Form from './Form';
 
