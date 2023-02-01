@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, useState } from 'react';
+import { Map, GoogleApiWrapper } from 'google-maps-react';
+import Form from './Form';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const mapStyles = {
+  width: '50%',
+  height: '50%'
+};
+
+export const MapContainer = (props) => {
+
+  const [location,setLocation] = useState({
+    lat : '',
+    long: '',
+    isShowMap: false
+  })
+
+  const showMap = (loc) =>{
+    console.log(loc);
+    setLocation({
+      lat: loc.lat,long: loc.long,isShowMap: true
+    })
+  }
+
+    return (
+      <>
+      <Form showMap = {showMap} name ="sujith"/> 
+      {
+        location.isShowMap  && 
+      <Map
+        google={props.google}
+        zoom={14}
+        style={mapStyles}
+        initialCenter={
+          {
+            lat: location.lat,
+            lng: location.long
+          }
+        }
+      /> }
+      </>
+    );  
 }
 
-export default App;
+export default GoogleApiWrapper({
+  apiKey: 'AIzaSyAzeEg1j_V3YoXjP2HIAqN2ux60xfgIM1s'
+})(MapContainer);
