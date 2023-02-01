@@ -1,13 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { ClickHandler } from './components/ClickHandler';
+//import App from './App';
+import { Message } from './components/Message';
+import { Parent } from './components/Parent';
+import { UserGreeting } from './components/UserGreeting';
 import './index.css';
-import App from './App';
+//import Appp from './Scratchh';
+//import Apps from './scratchhh';
+
 import reportWebVitals from './reportWebVitals';
+//import Greet from './scrach';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+   <Message/>
+   <ClickHandler/>
+   <Parent/>
+   <UserGreeting/>
   </React.StrictMode>
 );
 
